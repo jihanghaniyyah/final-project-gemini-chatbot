@@ -10,12 +10,12 @@ form.addEventListener('submit', async (e) => {
     if (!userMessage) return;
 
     // 1. Add the user's message to the chat box
-    appendMessage('user', userMessage);
+    appendMessage('human', userMessage);
     input.value = '';
 
     // 2. Show a temporary "Thinking..." bot message
     // We store the element to update it later.
-    const thinkingMsgElement = appendMessage('bot', 'Gemini is thinking...');
+    const thinkingMsgElement = appendMessage('assistant', 'Your Assistant is thinking...');
 
     try {
         // 3. Send the user's message to the backend API
@@ -56,7 +56,7 @@ form.addEventListener('submit', async (e) => {
 
 /**
  * Appends a new message to the chat box.
- * @param {string} role - The role of the sender ('user' or 'bot').
+ * @param {string} role - The role of the sender ('human' or 'assistant').
  * @param {string} text - The message content.
  * @returns {HTMLElement} The created message element.
  */
